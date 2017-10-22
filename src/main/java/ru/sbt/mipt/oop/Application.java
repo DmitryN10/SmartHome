@@ -14,9 +14,9 @@ public class Application {
         // начинаем цикл обработки событий
         SensorEvent event = getNextSensorEvent();
         Collection<EventProcessor> processors = new ArrayList<>();
-        processors.add(new DoorEventProcessor());
-        processors.add(new LightEventProcessor());
-        processors.add(new ScenarioRunner());
+        processors.add(new EventProcessorDecorator(new DoorEventProcessor()));
+        processors.add(new EventProcessorDecorator(new LightEventProcessor()));
+        processors.add(new EventProcessorDecorator(new ScenarioRunner()));
         while (event != null) {
             System.out.println("Got event: " + event);
             for (EventProcessor processor : processors) {
