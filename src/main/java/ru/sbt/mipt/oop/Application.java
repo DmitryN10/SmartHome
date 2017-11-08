@@ -1,11 +1,8 @@
 package ru.sbt.mipt.oop;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 
 public class Application {
 
@@ -13,15 +10,21 @@ public class Application {
         SmartHome smartHome = SmartHomeFileReader.read();
         // начинаем цикл обработки событий
         SensorEvent event = getNextSensorEvent();
-        Collection<EventProcessor> processors = new ArrayList<>();
-        processors.add(new EventProcessorDecorator(new DoorEventProcessor()));
-        processors.add(new EventProcessorDecorator(new LightEventProcessor()));
-        processors.add(new EventProcessorDecorator(new ScenarioRunner()));
+        TimeMeasuringObserver observer = new TimeMeasuringObserver();
+        configureObserver(observer);
+        runEvent(observer, event, smartHome);
+    }
+
+    private static void configureObserver(EventsObserver eventsObserver) {
+        eventsObserver.addHandler(new EventProcessorDecorator(new DoorEventProcessor()));
+        eventsObserver.addHandler(new EventProcessorDecorator (new LightEventProcessor()));
+        eventsObserver.addHandler(new EventProcessorDecorator (new ScenarioRunner()));
+    }
+
+    private static void runEvent(TimeMeasuringObserver observer, SensorEvent event, SmartHome smartHome) {
         while (event != null) {
             System.out.println("Got event: " + event);
-            for (EventProcessor processor : processors) {
-                processor.processEvent(smartHome, event);
-            }
+            observer.onSensorEvent(smartHome, event);
             event = getNextSensorEvent();
         }
     }
