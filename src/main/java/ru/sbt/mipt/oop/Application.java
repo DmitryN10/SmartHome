@@ -8,37 +8,11 @@ public class Application {
 
     public static void main(String... args) throws IOException {
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("application.xml");
-
         TimeMeasuringObservable observer = ctx.getBean(TimeMeasuringObservable.class);
         SensorEvent sensorEvent = ctx.getBean(SensorEvent.class);
         SmartHome smartHome = ctx.getBean(SmartHome.class);
         observer.runEvent(sensorEvent, smartHome);
-
-//        SmartHome smartHome = SmartHomeFileReader.read();
-//        // начинаем цикл обработки событий
-//        SensorEvent event = getNextSensorEvent();
-////        TimeMeasuringObservable observer = new TimeMeasuringObservable();
-////        configureObserver(observer);
-////        runEvent(observer, event, smartHome);
-//        observer.runEvent(event, smartHome);
     }
-
-//    private static void configureObserver(EventsObservable eventsObserver) {
-////        eventsObserver.addHandler(new EventProcessorDecorator(new DoorEventProcessor()));
-////        eventsObserver.addHandler(new EventProcessorDecorator (new LightEventProcessor()));
-////        eventsObserver.addHandler(new EventProcessorDecorator (new ScenarioRunner()));
-//        eventsObserver.addHandler(new DoorEventProcessor());
-//        eventsObserver.addHandler(new LightEventProcessor());
-//        eventsObserver.addHandler(new ScenarioRunner());
-//    }
-
-//    private static void runEvent(TimeMeasuringObservable observer, SensorEvent event, SmartHome smartHome) {
-//        while (event != null) {
-//            System.out.println("Got event: " + event);
-//            observer.onSensorEvent(smartHome, event);
-//            event = getNextSensorEvent();
-//        }
-//    }
 
     private static void sendCommand(SensorCommand command) {
         System.out.println("Pretent we're sending command " + command);
