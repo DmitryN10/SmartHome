@@ -8,7 +8,6 @@ public class Application {
 
     public static void main(String... args) throws IOException {
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("application.xml");
-        // instantiate our spring dao object from the application context
 
         TimeMeasuringObservable observer = ctx.getBean(TimeMeasuringObservable.class);
         SensorEvent sensorEvent = ctx.getBean(SensorEvent.class);
