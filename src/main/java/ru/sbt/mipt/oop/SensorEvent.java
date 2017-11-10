@@ -24,4 +24,5 @@ public class SensorEvent {
                 ", objectId='" + objectId + '\'' +
                 '}';
     }
+
 }
