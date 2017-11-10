@@ -13,15 +13,7 @@ public class Application {
         SensorEvent sensorEvent = ctx.getBean(SensorEvent.class);
         SmartHome smartHome = ctx.getBean(SmartHome.class);
         observer.runEvent(sensorEvent, smartHome);
-//        FileEventDao fileEventDao = (FileEventDao)ctx.getBean("fileEventDao");
-//
-//        // create a FileEventType object from the application context
-//        FileEventType fileEventType = (FileEventType)ctx.getBean("fileEventType");
-//
-//        // insert the file event with the spring dao
-//        fileEventDao.doInsert(fileEventType);
-//
-//
+
 //        SmartHome smartHome = SmartHomeFileReader.read();
 //        // начинаем цикл обработки событий
 //        SensorEvent event = getNextSensorEvent();
