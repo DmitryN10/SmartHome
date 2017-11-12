@@ -1,13 +1,13 @@
-package ru.sbt.mipt.oop;
-
-import ru.sbt.mipt.oop.Light;
-import ru.sbt.mipt.oop.Room;
-import ru.sbt.mipt.oop.SmartHome;
-import ru.sbt.mipt.oop.SmartHomeManager;
+package ru.sbt;
 
 public class ScenarioRunner implements EventProcessor {
     // если мы получили событие о закрытие двери в холле - это значит, что была закрыта входная дверь.
     // в этом случае мы хотим автоматически выключить свет во всем доме (это же умный дом!)
+
+    private boolean isDoorClosedEvent(SensorEvent event) {
+        return event.getType() == SensorEventType.DOOR_CLOSED;
+    }
+
     @Override
     public void processEvent(SmartHome smartHome, SensorEvent event) {
         if (!isDoorClosedEvent(event)) {
@@ -28,9 +28,5 @@ public class ScenarioRunner implements EventProcessor {
                 }
             }
         }
-    }
-
-    private boolean isDoorClosedEvent(SensorEvent event) {
-        return event.getType() == SensorEventType.DOOR_CLOSED;
     }
 }

@@ -1,4 +1,4 @@
-package ru.sbt.mipt.oop;
+package ru.sbt;
 
 public class SmartHomeManager {
     public static void turnOnLight(Light light) {

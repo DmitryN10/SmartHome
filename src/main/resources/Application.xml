@@ -4,22 +4,22 @@
 <beans>
 
     <bean id="smartHome"
-          class="ru.sbt.mipt.oop.SmartHomeFileReader"
+          class="ru.sbt.SmartHomeFileReader"
           factory-method="read">
     </bean>
 
     <bean id="sensorEvent"
-          class="ru.sbt.mipt.oop.Application"
+          class="ru.sbt.Application"
           factory-method="getNextSensorEvent">
     </bean>
 
-    <bean id="doorEventProcessor" class="ru.sbt.mipt.oop.DoorEventProcessor"></bean>
+    <bean id="doorEventProcessor" class="ru.sbt.DoorEventProcessor"></bean>
 
-    <bean id="lightEventProcessor" class="ru.sbt.mipt.oop.LightEventProcessor"></bean>
+    <bean id="lightEventProcessor" class="ru.sbt.LightEventProcessor"></bean>
 
-    <bean id="scenarioRunner" class="ru.sbt.mipt.oop.ScenarioRunner"></bean>
+    <bean id="scenarioRunner" class="ru.sbt.ScenarioRunner"></bean>
 
-    <bean id="timeMeasuringObserver" class="ru.sbt.mipt.oop.TimeMeasuringObservable">
+    <bean id="timeMeasuringObserver" class="ru.sbt.TimeMeasuringObservable">
         <constructor-arg>
             <list>
                 <ref bean="doorEventProcessor"></ref>

@@ -1,8 +1,7 @@
-package ru.sbt.mipt.oop;
+package ru.sbt;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import ru.sbt.mipt.oop.SmartHome;
 
 public class SmartHomeTransformer {
     public static String transform(SmartHome smartHome) {

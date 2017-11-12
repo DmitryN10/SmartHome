@@ -1,4 +1,4 @@
-package ru.sbt.mipt.oop;
+package ru.sbt;
 
 /**
  * Created by Дмитрий on 22.10.2017.

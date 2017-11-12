@@ -1,4 +1,4 @@
-package ru.sbt.mipt.oop;
+package ru.sbt;
 
 import java.io.IOException;
 import java.util.Arrays;

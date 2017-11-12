@@ -1,7 +1,4 @@
-package ru.sbt.mipt.oop;
-
-import static ru.sbt.mipt.oop.SensorEventType.LIGHT_OFF;
-import static ru.sbt.mipt.oop.SensorEventType.LIGHT_ON;
+package ru.sbt;
 
 public class LightEventProcessor implements EventProcessor {
     @Override
@@ -13,7 +10,7 @@ public class LightEventProcessor implements EventProcessor {
         for (Room room : smartHome.getRooms()) {
             for (Light light : room.getLights()) {
                 if (light.getId().equals(event.getObjectId())) {
-                    if (event.getType() == LIGHT_ON) {
+                    if (event.getType() == SensorEventType.LIGHT_ON) {
                         SmartHomeManager.turnOnLight(light);
                         System.out.println("Light " + light.getId() + " in room " + room.getName() + " was turned on.");
                     } else {
@@ -26,6 +23,6 @@ public class LightEventProcessor implements EventProcessor {
     }
 
     private boolean isLightEvent(SensorEvent event) {
-        return event.getType() == LIGHT_ON || event.getType() == LIGHT_OFF;
+        return event.getType() == SensorEventType.LIGHT_ON || event.getType() == SensorEventType.LIGHT_OFF;
     }
 }

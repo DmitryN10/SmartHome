@@ -1,4 +1,4 @@
-package ru.sbt.mipt.oop;
+package ru.sbt;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
