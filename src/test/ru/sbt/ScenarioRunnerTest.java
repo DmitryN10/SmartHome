@@ -13,7 +13,7 @@ import static org.junit.Assert.assertTrue;
 public class ScenarioRunnerTest {
 
     @Test
-    public void testSce() {
+    public void testSRT() {
         SmartHome smartHome = SmartHomeTestUtils.creatSmartHome(true, true);
         Light light = new Light("1", true);
         String hallDoorId = "Door #1";
