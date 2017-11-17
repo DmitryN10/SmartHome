@@ -6,10 +6,16 @@ package ru.sbt;
 public class AlarmSystem {
 
     private AlarmSystemState stateStrategy;
+
+    public void setState(AlarmSystemStateEnum state) {
+        this.state = state;
+    }
+
     private AlarmSystemStateEnum state;
 
-    public AlarmSystem(AlarmSystemState stateStrategy) {
-        this.stateStrategy = stateStrategy;
+    public AlarmSystem() {
+        AlarmSystemState alarmSystemState = new AlarmSystemOffState(this);
+        this.stateStrategy = alarmSystemState;
         this.state = AlarmSystemStateEnum.OFF;
     }
 
