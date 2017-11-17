@@ -30,7 +30,7 @@ public class AlarmSystemOffStateTest {
     @Test
     public void otherMethods() throws Exception {
         AlarmSystem alarmSystem = new AlarmSystem();
-        alarmSystem.turnOf();
+        alarmSystem.turnOff();
         assertEquals(AlarmSystemStateEnum.OFF, alarmSystem.getState());
         alarmSystem.typeCorrectPassword();
         assertEquals(AlarmSystemStateEnum.OFF, alarmSystem.getState());

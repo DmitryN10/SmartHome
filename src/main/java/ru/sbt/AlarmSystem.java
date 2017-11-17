@@ -31,7 +31,7 @@ public class AlarmSystem {
         stateStrategy.turnOn();
     }
 
-    public void turnOf() {
+    public void turnOff() {
         stateStrategy.turnOff();
     }
 

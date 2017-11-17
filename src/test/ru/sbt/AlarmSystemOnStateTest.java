@@ -8,8 +8,8 @@ import static org.junit.Assert.*;
  * Created by user on 17.11.2017.
  */
 public class AlarmSystemOnStateTest {
-    AlarmSystem alarmSystem = new AlarmSystem();
-    public AlarmSystem generateStateOn(){
+
+    private AlarmSystem generateStateOn(){
         AlarmSystem alarmSystem = new AlarmSystem();
         alarmSystem.turnOn();
         return alarmSystem;
@@ -24,18 +24,29 @@ public class AlarmSystemOnStateTest {
 
     @Test
     public void onSensor() throws Exception {
+        AlarmSystem alarmSystem = generateStateOn();
+        alarmSystem.onSensor(createSensorEvent());
+        assertEquals(AlarmSystemStateEnum.WAIT_FOR_PASSWORD, alarmSystem.getState());
+    }
+
+    private SensorEvent createSensorEvent() {
+        return new SensorEvent(SensorEventType.DOOR_OPEN, "1");
     }
 
     @Test
     public void turnOff() throws Exception {
+        AlarmSystem alarmSystem = generateStateOn();
+        assertEquals(AlarmSystemStateEnum.ON, alarmSystem.getState());
+        alarmSystem.turnOff();
+        assertEquals(AlarmSystemStateEnum.OFF, alarmSystem.getState());
     }
 
     @Test
-    public void typeCorrectPassword() throws Exception {
+    public void otherMethods() throws Exception {
+        AlarmSystem alarmSystem = generateStateOn();
+        alarmSystem.typeCorrectPassword();
+        assertEquals(AlarmSystemStateEnum.ON, alarmSystem.getState());
+        alarmSystem.typeUncorrectPassword();
+        assertEquals(AlarmSystemStateEnum.ON, alarmSystem.getState());
     }
-
-    @Test
-    public void typeUncorrectPassword() throws Exception {
-    }
-
 }

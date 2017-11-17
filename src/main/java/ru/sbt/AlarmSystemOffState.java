@@ -13,7 +13,7 @@ public class AlarmSystemOffState implements AlarmSystemState {
 
     @Override
     public void turnOn() {
-        alarmSystem.setStateStrategy(new AlarmSystemOffState(alarmSystem));
+        alarmSystem.setStateStrategy(new AlarmSystemOnState(alarmSystem));
         alarmSystem.setState(AlarmSystemStateEnum.ON);
     }
 
