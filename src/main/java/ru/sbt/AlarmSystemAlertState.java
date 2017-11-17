@@ -3,16 +3,17 @@ package ru.sbt;
 /**
  * Created by user on 17.11.2017.
  */
-public class AlarmSystemOnState implements AlarmSystemState {
-
+public class AlarmSystemAlertState implements AlarmSystemState {
     private AlarmSystem alarmSystem;
 
-    public AlarmSystemOnState(AlarmSystem alarmSystem) {
+    public AlarmSystemAlertState(AlarmSystem alarmSystem) {
         this.alarmSystem = alarmSystem;
     }
 
     @Override
-    public void turnOn() {}
+    public void turnOn() {
+
+    }
 
     @Override
     public void onSensor(SensorEvent sensorEvent) {
@@ -22,12 +23,15 @@ public class AlarmSystemOnState implements AlarmSystemState {
 
     @Override
     public void turnOff() {
-        alarmSystem.setStateStrategy(new AlarmSystemOffState(alarmSystem));
-        alarmSystem.setState(AlarmSystemStateEnum.OFF);
+        alarmSystem.setStateStrategy(new AlarmSystemWaitForPasswordState(alarmSystem));
+        alarmSystem.setState(AlarmSystemStateEnum.WAIT_FOR_PASSWORD);
     }
 
     @Override
-    public void typeCorrectPassword() {}
+    public void typeCorrectPassword() {
+        alarmSystem.setStateStrategy(new AlarmSystemOffState(alarmSystem));
+        alarmSystem.setState(AlarmSystemStateEnum.ON);
+    }
 
     @Override
     public void typeUncorrectPassword() {}

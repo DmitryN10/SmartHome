@@ -11,11 +11,27 @@ public class AlarmSystemWaitForPasswordState implements AlarmSystemState {
     }
 
     @Override
-    public void turnOn() {
+    public void turnOn() {}
+
+    @Override
+    public void onSensor(SensorEvent sensorEvent) {}
+
+    @Override
+    public void turnOff() {
+        alarmSystem.setStateStrategy(new AlarmSystemOffState(alarmSystem));
+        alarmSystem.setState(AlarmSystemStateEnum.OFF);
     }
 
     @Override
-    public void onSensor(SensorEvent sensorEvent) {
+    public void typeCorrectPassword() {
+        alarmSystem.setStateStrategy(new AlarmSystemOnState(alarmSystem));
+        alarmSystem.setState(AlarmSystemStateEnum.ON);
 
+    }
+
+    @Override
+    public void typeUncorrectPassword() {
+        alarmSystem.setStateStrategy(new AlarmSystemAlertState(alarmSystem));
+        alarmSystem.setState(AlarmSystemStateEnum.ALERT);
     }
 }

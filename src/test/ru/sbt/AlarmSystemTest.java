@@ -47,4 +47,14 @@ public class AlarmSystemTest {
         AlarmSystem alarmSystem = new AlarmSystem();
         assertEquals(AlarmSystemStateEnum.OFF, alarmSystem.getState());
     }
+
+    @Test
+    public void testTurnOffAlert(){
+        AlarmSystem alarmSystem = new AlarmSystem();
+        SensorEvent sensorEvent = createSensorEvent();
+        alarmSystem.onSensor(sensorEvent);
+        alarmSystem.turnOn();
+        alarmSystem.typeUncorrectPassword();
+        assertEquals(AlarmSystemStateEnum.ALERT, alarmSystem.getState());
+    }
 }

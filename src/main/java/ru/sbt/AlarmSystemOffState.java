@@ -23,5 +23,14 @@ public class AlarmSystemOffState implements AlarmSystemState {
         alarmSystem.setState(AlarmSystemStateEnum.WAIT_FOR_PASSWORD);
     }
 
+    @Override
+    public void turnOff() {}
+
+    @Override
+    public void typeCorrectPassword() {}
+
+    @Override
+    public void typeUncorrectPassword() {}
+
 
 }
