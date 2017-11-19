@@ -4,7 +4,7 @@
 <beans>
 
     <bean id="smartHome"
-          class="ru.sbt.SmartHomeFileReader"
+          class="ru.sbt.smartHome.SmartHomeFileReader"
           factory-method="read">
     </bean>
 
@@ -13,13 +13,13 @@
           factory-method="getNextSensorEvent">
     </bean>
 
-    <bean id="doorEventProcessor" class="ru.sbt.DoorEventProcessor"></bean>
+    <bean id="doorEventProcessor" class="ru.sbt.eventHandler.DoorEventProcessor"></bean>
 
-    <bean id="lightEventProcessor" class="ru.sbt.LightEventProcessor"></bean>
+    <bean id="lightEventProcessor" class="ru.sbt.eventHandler.LightEventProcessor"></bean>
 
-    <bean id="scenarioRunner" class="ru.sbt.ScenarioRunner"></bean>
+    <bean id="scenarioRunner" class="ru.sbt.eventHandler.ScenarioRunner"></bean>
 
-    <bean id="timeMeasuringObserver" class="ru.sbt.TimeMeasuringObservable">
+    <bean id="timeMeasuringObserver" class="ru.sbt.eventHandler.TimeMeasuringObservable">
         <constructor-arg>
             <list>
                 <ref bean="doorEventProcessor"></ref>

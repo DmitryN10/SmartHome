@@ -1,6 +1,10 @@
 package ru.sbt;
 
 import org.junit.Test;
+import ru.sbt.eventHandler.EventProcessorDecorator;
+import ru.sbt.eventHandler.TimeMeasuringObservable;
+import ru.sbt.sensorEvent.SensorEvent;
+import ru.sbt.smartHome.SmartHome;
 
 import java.util.Arrays;
 
