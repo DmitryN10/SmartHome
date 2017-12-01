@@ -17,6 +17,7 @@ public class Application {
         TimeMeasuringObservable observer = ctx.getBean(TimeMeasuringObservable.class);
         SensorEvent sensorEvent = ctx.getBean(SensorEvent.class);
         SmartHome smartHome = ctx.getBean(SmartHome.class);
+
         observer.runEvent(sensorEvent, smartHome);
     }
 

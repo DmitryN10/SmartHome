@@ -1,9 +1,10 @@
 package ru.sbt.smartHome;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class SmartHome {
+public class SmartHome implements Actionable {
     Collection<Room> rooms;
 
     public SmartHome() {
@@ -20,5 +21,14 @@ public class SmartHome {
 
     public Collection<Room> getRooms() {
         return rooms;
+    }
+
+
+    @Override
+    public void executeAction(Action action) {
+        action.execute(this);
+        for (Room room : rooms) {
+            room.executeAction(action);
+        }
     }
 }
