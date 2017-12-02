@@ -1,3 +1,5 @@
+
+
 package ru.sbt.smartHome;
 
 public class Door implements Actionable {
