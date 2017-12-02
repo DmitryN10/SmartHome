@@ -13,26 +13,23 @@ import static org.junit.Assert.*;
  */
 public class AlarmSystemOffStateTest {
     @Test
-    public void turnOn() throws Exception {
+    public void turnOn() {
         AlarmSystem alarmSystem = new AlarmSystem();
         alarmSystem.turnOn();
         assertEquals(AlarmSystemStateEnum.ON, alarmSystem.getState());
     }
 
     @Test
-    public void onSensor() throws Exception {
+    public void onSensor() {
         AlarmSystem alarmSystem = new AlarmSystem();
         SensorEvent sensorEvent = createSensorEvent();
         alarmSystem.onSensor(sensorEvent);
         assertEquals(AlarmSystemStateEnum.WAIT_FOR_PASSWORD, alarmSystem.getState());
     }
-    private SensorEvent createSensorEvent() {
-        return new SensorEvent(SensorEventType.DOOR_OPEN, "1");
-    }
 
 
     @Test
-    public void otherMethods() throws Exception {
+    public void otherMethods() {
         AlarmSystem alarmSystem = new AlarmSystem();
         alarmSystem.turnOff();
         assertEquals(AlarmSystemStateEnum.OFF, alarmSystem.getState());
@@ -40,5 +37,9 @@ public class AlarmSystemOffStateTest {
         assertEquals(AlarmSystemStateEnum.OFF, alarmSystem.getState());
         alarmSystem.typeUncorrectPassword();
         assertEquals(AlarmSystemStateEnum.OFF, alarmSystem.getState());
+    }
+
+    private SensorEvent createSensorEvent() {
+        return new SensorEvent(SensorEventType.DOOR_OPEN, "1");
     }
 }

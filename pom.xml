@@ -53,10 +53,5 @@
             <version>5.0.1.RELEASE</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.sbertech</groupId>
-            <artifactId>naumu-pizda</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
     </dependencies>
 </project>

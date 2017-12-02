@@ -1,8 +1,5 @@
 package ru.sbt.smartHome;
 
-import ru.sbt.smartHome.Door;
-import ru.sbt.smartHome.Light;
-
 import java.util.Collection;
 
 public class Room implements Actionable {
@@ -33,6 +30,9 @@ public class Room implements Actionable {
         action.execute(this);
         for (Light light : lights) {
             light.executeAction(action);
+        }
+        for (Door door : doors) {
+            door.executeAction(action);
         }
     }
 }

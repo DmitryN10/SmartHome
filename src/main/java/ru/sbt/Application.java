@@ -2,16 +2,13 @@ package ru.sbt;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import ru.sbt.eventHandler.TimeMeasuringObservable;
-import ru.sbt.sensorEvent.SensorCommand;
 import ru.sbt.sensorEvent.SensorEvent;
 import ru.sbt.sensorEvent.SensorEventType;
 import ru.sbt.smartHome.SmartHome;
 
-import java.io.IOException;
-
 public class Application {
 
-    public static void main(String... args) throws IOException {
+    public static void main(String... args) {
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("application.xml");
 
         TimeMeasuringObservable observer = ctx.getBean(TimeMeasuringObservable.class);
@@ -28,8 +25,4 @@ public class Application {
         String objectId = "" + ((int) (10 * Math.random()));
         return new SensorEvent(sensorEventType, objectId);
     }
-
-//    private static void sendCommand(SensorCommand command) {
-//        System.out.println("Pretent we're sending command " + command);
-//    }
 }

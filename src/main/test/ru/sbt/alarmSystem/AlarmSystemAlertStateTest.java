@@ -1,12 +1,10 @@
 package ru.sbt.alarmSystem;
 
 import org.junit.Test;
-import ru.sbt.alarmSystem.AlarmSystem;
-import ru.sbt.alarmSystem.AlarmSystemStateEnum;
 import ru.sbt.sensorEvent.SensorEvent;
 import ru.sbt.sensorEvent.SensorEventType;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by user on 17.11.2017.
@@ -23,29 +21,30 @@ public class AlarmSystemAlertStateTest {
         alarmSystem.typeUncorrectPassword();
         return alarmSystem;
     }
+
     @Test
-    public void onSensor() throws Exception {
+    public void onSensor() {
         AlarmSystem alarmSystem = generateStateAlert();
         alarmSystem.onSensor(createSensorEvent());
         assertEquals(AlarmSystemStateEnum.WAIT_FOR_PASSWORD, alarmSystem.getState());
     }
 
     @Test
-    public void turnOff() throws Exception {
+    public void turnOff() {
         AlarmSystem alarmSystem = generateStateAlert();
         alarmSystem.turnOff();
         assertEquals(AlarmSystemStateEnum.WAIT_FOR_PASSWORD, alarmSystem.getState());
     }
 
     @Test
-    public void typeCorrectPassword() throws Exception {
+    public void typeCorrectPassword() {
         AlarmSystem alarmSystem = generateStateAlert();
         alarmSystem.typeCorrectPassword();
         assertEquals(AlarmSystemStateEnum.ON, alarmSystem.getState());
     }
 
     @Test
-    public void otherMethods() throws Exception {
+    public void otherMethods() {
         AlarmSystem alarmSystem = generateStateAlert();
         alarmSystem.turnOn();
         assertEquals(AlarmSystemStateEnum.ALERT, alarmSystem.getState());
