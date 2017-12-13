@@ -32,5 +32,5 @@ public class AlarmSystemOnState implements AlarmSystemState {
     public void typeCorrectPassword() {}
 
     @Override
-    public void typeUncorrectPassword() {}
+    public void typeIncorrectPassword() {}
 }

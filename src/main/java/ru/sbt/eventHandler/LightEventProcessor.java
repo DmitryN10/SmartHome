@@ -13,7 +13,6 @@ public class LightEventProcessor implements EventProcessor {
         if (!isLightEvent(event)) {
             return;
         }
-
         for (Room room : smartHome.getRooms()) {
             for (Light light : room.getLights()) {
                 if (light.getId().equals(event.getObjectId())) {

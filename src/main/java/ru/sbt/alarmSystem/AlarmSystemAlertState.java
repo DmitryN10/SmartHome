@@ -13,9 +13,7 @@ public class AlarmSystemAlertState implements AlarmSystemState {
     }
 
     @Override
-    public void turnOn() {
-
-    }
+    public void turnOn() {}
 
     @Override
     public void onSensor(SensorEvent sensorEvent) {
@@ -36,5 +34,5 @@ public class AlarmSystemAlertState implements AlarmSystemState {
     }
 
     @Override
-    public void typeUncorrectPassword() {}
+    public void typeIncorrectPassword() {}
 }

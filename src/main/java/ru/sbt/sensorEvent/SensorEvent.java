@@ -12,7 +12,6 @@ public class SensorEvent {
     public SensorEventType getType() {
         return type;
     }
-
     public String getObjectId() {
         return objectId;
     }

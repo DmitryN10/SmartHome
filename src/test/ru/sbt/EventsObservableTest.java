@@ -2,6 +2,9 @@ package ru.sbt;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
 import org.omg.PortableServer.LIFESPAN_POLICY_ID;
 import ru.sbt.eventHandler.EventProcessorDecorator;
 import ru.sbt.eventHandler.SmartHomeTestUtils;
@@ -21,20 +24,23 @@ import static org.mockito.Mockito.*;
 /**
  * Created by Дмитрий on 09.11.2017.
  */
+@RunWith(MockitoJUnitRunner.class)
 public class EventsObservableTest {
+    @Mock
+    EventProcessorDecorator doorProcessor;
+    @Mock
+    EventProcessorDecorator lightProcessor;
+    @Mock
+    EventProcessorDecorator scenarioProcessor;
+    @Mock
+    SmartHome smartHome;
+    @Mock
+    SensorEvent sensorEvent;
 
     @Test
-    public void testOnSensorEvent() {
-        EventProcessorDecorator doorProcessor = mock(EventProcessorDecorator.class);
-        EventProcessorDecorator lightProcessor = mock(EventProcessorDecorator.class);
-        EventProcessorDecorator scenarioProcessor = mock(EventProcessorDecorator.class);
-
+    public void testOnSensorEvent() throws Exception {
         TimeMeasuringObservable timeMeasuringObserver = new TimeMeasuringObservable(
                 asList(doorProcessor, lightProcessor, scenarioProcessor));
-
-        SmartHome smartHome = mock(SmartHome.class);
-        SensorEvent sensorEvent = mock(SensorEvent.class);
-
         timeMeasuringObserver.onSensorEvent(smartHome, sensorEvent);
 
         verify(doorProcessor).processEvent(smartHome, sensorEvent);

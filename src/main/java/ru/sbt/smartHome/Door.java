@@ -23,7 +23,6 @@ public class Door implements Actionable {
         return isOpen;
     }
 
-
     @Override
     public void executeAction(Action action) {
         action.execute(this);
