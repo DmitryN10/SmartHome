@@ -1,4 +1,4 @@
-package ru.sbt.eventHandler;
+package ru.sbt.eventProcessor;
 
 import ru.sbt.sensorEvent.SensorEvent;
 import ru.sbt.sensorEvent.SensorEventType;
@@ -16,7 +16,7 @@ public class ScenarioRunner implements EventProcessor {
                     if (room.getName().equals("hall")) {
                         for (Room homeRoom : smartHome.getRooms()) {
                             for (Light light : homeRoom.getLights()) {
-                                SmartHomeManager.turnOffLight(light);
+                                light.setOn(false);
                             }
                         }
                     }

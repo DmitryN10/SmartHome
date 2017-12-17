@@ -1,11 +1,10 @@
-package ru.sbt.eventHandler;
+package ru.sbt.eventProcessor;
 
 import ru.sbt.sensorEvent.SensorEvent;
 import ru.sbt.sensorEvent.SensorEventType;
 import ru.sbt.smartHome.Door;
 import ru.sbt.smartHome.Room;
 import ru.sbt.smartHome.SmartHome;
-import ru.sbt.smartHome.SmartHomeManager;
 
 public class DoorEventProcessor implements EventProcessor {
     @Override
@@ -17,10 +16,10 @@ public class DoorEventProcessor implements EventProcessor {
             for (Door door : room.getDoors()) {
                 if (door.getId().equals(event.getObjectId())) {
                     if (event.getType() == SensorEventType.DOOR_OPEN) {
-                        SmartHomeManager.openDoor(door);
+                        door.setOpen(true);
                         System.out.println("Door " + door.getId() + " in room " + room.getName() + " was opened.");
                     } else {
-                        SmartHomeManager.closeDoor(door);
+                        door.setOpen(false);
                         System.out.println("Door " + door.getId() + " in room " + room.getName() + " was closed.");
                     }
                 }

@@ -13,13 +13,13 @@
           factory-method="getNextSensorEvent">
     </bean>
 
-    <bean id="doorEventProcessor" class="ru.sbt.eventHandler.DoorEventProcessor"></bean>
+    <bean id="doorEventProcessor" class="ru.sbt.eventProcessor.DoorEventProcessor"></bean>
 
-    <bean id="lightEventProcessor" class="ru.sbt.eventHandler.LightEventProcessor"></bean>
+    <bean id="lightEventProcessor" class="ru.sbt.eventProcessor.LightEventProcessor"></bean>
 
-    <bean id="scenarioRunner" class="ru.sbt.eventHandler.ScenarioRunner"></bean>
+    <bean id="scenarioRunner" class="ru.sbt.eventProcessor.ScenarioRunner"></bean>
 
-    <bean id="timeMeasuringObserver" class="ru.sbt.eventHandler.TimeMeasuringObservable">
+    <bean id="timeMeasuringObserver" class="ru.sbt.eventProcessor.TimeMeasuringObservable">
         <constructor-arg>
             <list>
                 <ref bean="doorEventProcessor"></ref>

@@ -1,4 +1,4 @@
-package ru.sbt.eventHandler;
+package ru.sbt.eventProcessor;
 
 
 import ru.sbt.sensorEvent.SensorEvent;

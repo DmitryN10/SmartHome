@@ -19,13 +19,11 @@ public class AlarmSystemOnState implements AlarmSystemState {
     @Override
     public void onSensor(SensorEvent sensorEvent) {
         alarmSystem.setStateStrategy(new AlarmSystemWaitForPasswordState(alarmSystem));
-        alarmSystem.setState(AlarmSystemStateEnum.WAIT_FOR_PASSWORD);
     }
 
     @Override
     public void turnOff() {
         alarmSystem.setStateStrategy(new AlarmSystemOffState(alarmSystem));
-        alarmSystem.setState(AlarmSystemStateEnum.OFF);
     }
 
     @Override
@@ -33,4 +31,9 @@ public class AlarmSystemOnState implements AlarmSystemState {
 
     @Override
     public void typeIncorrectPassword() {}
+
+    @Override
+    public AlarmSystemStateEnum getState() {
+        return AlarmSystemStateEnum.ON;
+    }
 }

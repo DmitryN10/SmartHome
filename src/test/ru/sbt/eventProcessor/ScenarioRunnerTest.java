@@ -1,4 +1,4 @@
-package ru.sbt.eventHandler;
+package ru.sbt.eventProcessor;
 
 import org.junit.Test;
 import ru.sbt.sensorEvent.SensorEvent;

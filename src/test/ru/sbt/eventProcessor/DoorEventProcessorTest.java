@@ -1,4 +1,4 @@
-package ru.sbt.eventHandler;
+package ru.sbt.eventProcessor;
 
 import junit.framework.TestCase;
 import org.junit.Test;
@@ -12,7 +12,7 @@ import java.util.Collection;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static ru.sbt.eventHandler.SmartHomeTestUtils.creatSmartHome;
+import static ru.sbt.eventProcessor.SmartHomeTestUtils.creatSmartHome;
 
 public class DoorEventProcessorTest extends TestCase {
 

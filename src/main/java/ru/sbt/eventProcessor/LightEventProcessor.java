@@ -1,11 +1,10 @@
-package ru.sbt.eventHandler;
+package ru.sbt.eventProcessor;
 
 import ru.sbt.sensorEvent.SensorEvent;
 import ru.sbt.sensorEvent.SensorEventType;
 import ru.sbt.smartHome.Light;
 import ru.sbt.smartHome.Room;
 import ru.sbt.smartHome.SmartHome;
-import ru.sbt.smartHome.SmartHomeManager;
 
 public class LightEventProcessor implements EventProcessor {
     @Override
@@ -17,10 +16,10 @@ public class LightEventProcessor implements EventProcessor {
             for (Light light : room.getLights()) {
                 if (light.getId().equals(event.getObjectId())) {
                     if (event.getType() == SensorEventType.LIGHT_ON) {
-                        SmartHomeManager.turnOnLight(light);
+                        light.setOn(true);
                         System.out.println("Light " + light.getId() + " in room " + room.getName() + " was turned on.");
                     } else {
-                        SmartHomeManager.turnOffLight(light);
+                        light.setOn(false);
                         System.out.println("Light " + light.getId() + " in room " + room.getName() + " was turned off.");
                     }
                 }

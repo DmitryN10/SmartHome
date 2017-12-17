@@ -1,8 +1,6 @@
-package ru.sbt.eventHandler;
+package ru.sbt.eventProcessor;
 
 import ru.sbt.Application;
-import ru.sbt.eventHandler.EventProcessor;
-import ru.sbt.eventHandler.EventProcessorDecorator;
 import ru.sbt.sensorEvent.SensorEvent;
 import ru.sbt.smartHome.SmartHome;
 
@@ -19,8 +17,8 @@ public abstract class EventsObservable {
         this.processors = processors;
     }
 
-    public void addHandler(EventProcessorDecorator eventProcessorDecorator){
-        processors.add(eventProcessorDecorator);
+    public void addProcessor(EventProcessor eventProcessor){
+        processors.add(eventProcessor);
     }
 
     public void onSensorEvent(SmartHome smartHome, SensorEvent sensorEvent){
@@ -29,7 +27,6 @@ public abstract class EventsObservable {
         }
     }
 
-    public abstract void addHandler(EventProcessor eventProcessor);
 
     public void runEvent(SensorEvent event, SmartHome smartHome) {
         while (event != null) {

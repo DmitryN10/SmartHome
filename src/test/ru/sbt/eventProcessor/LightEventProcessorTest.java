@@ -1,4 +1,4 @@
-package ru.sbt.eventHandler;
+package ru.sbt.eventProcessor;
 import org.junit.Test;
 import ru.sbt.sensorEvent.SensorEvent;
 import ru.sbt.sensorEvent.SensorEventType;
@@ -9,7 +9,7 @@ import ru.sbt.smartHome.SmartHome;
 import java.util.Collection;
 
 import static org.junit.Assert.*;
-import static ru.sbt.eventHandler.SmartHomeTestUtils.*;
+import static ru.sbt.eventProcessor.SmartHomeTestUtils.*;
 
 public class LightEventProcessorTest {
 

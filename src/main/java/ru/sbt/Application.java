@@ -1,7 +1,7 @@
 package ru.sbt;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import ru.sbt.eventHandler.TimeMeasuringObservable;
+import ru.sbt.eventProcessor.TimeMeasuringObservable;
 import ru.sbt.sensorEvent.SensorEvent;
 import ru.sbt.sensorEvent.SensorEventType;
 import ru.sbt.smartHome.SmartHome;

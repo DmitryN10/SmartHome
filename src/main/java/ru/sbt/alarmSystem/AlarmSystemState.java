@@ -11,5 +11,6 @@ public interface AlarmSystemState {
     void turnOff();
     void typeCorrectPassword();
     void typeIncorrectPassword();
+    AlarmSystemStateEnum getState();
 }
 

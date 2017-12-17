@@ -40,7 +40,7 @@ public class AlarmSystemAlertStateTest {
     public void typeCorrectPassword() {
         AlarmSystem alarmSystem = generateStateAlert();
         alarmSystem.typeCorrectPassword();
-        assertEquals(AlarmSystemStateEnum.ON, alarmSystem.getState());
+        assertEquals(AlarmSystemStateEnum.OFF, alarmSystem.getState());
     }
 
     @Test
